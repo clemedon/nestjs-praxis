@@ -1,0 +1,51 @@
+### First steps
+
+- create a project with the typescript strictest feature set with `nest new
+  --strict` then add `alwaysStrict` and `noImplicitAny` options to
+  `tsconfig.json`.
+
+- TODO fix browser hot reload https://docs.nestjs.com/recipes/hot-reload
+
+- by default, if any error happens while creating the application your app will
+  exit with the code 1. if you want to make it throw an error instead disable
+  the option abortonerror (e.g., `nestfactory.create(appmodule, { abortonerror:
+  false })`).
+
+- two HTTP platforms are supported out-of-the-box: *express* and
+  *fastify*:
+  * NestExpressApplication (default) == simplicity
+  * NestFastifyApplication           == performance
+
+- start the app listening for inbound HTTP requests: `npm run start`
+  * or live update with: `npm run start:dev`
+  * or x20 faster builds with: `npm run start -- -b swc`
+  and navigate to http://localhost:3000/
+
+- TODO Add to CI/Git hooks:
+    $ npm run lint
+    $ npm run format
+
+### Controllers
+
+- For quickly creating a CRUD controller with the validation built-in, you may
+  use the CLI's CRUD generator: `nest g resource [name]`
+  https://docs.nestjs.com/recipes/crud-generator#crud-generator
+
+Create module       `nest g mo <name>`
+Create a controller `nest g co <name>`
+Create a service    `nest g s <name>`
+
+
+  a module encapsulate a controller and a service, the controller handles
+  incoming requests and the service provides functionalities to the controller.
+    +
+  *modules* organize components, *services* encapsulate business logic, and
+  *controllers* handle incoming requests and generate responses in a NestJS
+  application.
+    =
+  modules encapsulate a controllers and a service, services encapsulate business
+  logic to provide to the controller and the controllers handle incoming
+  requests and generate responses in a NestJS application
+
+  a controller does retrieve data, it listens to what comes in and gives it the
+  way
